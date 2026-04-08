@@ -1,4 +1,5 @@
 const router = require("express").Router()
+const { User } = require("../models/auth")
 
 router.post("/register", (req, res) => {
 	try {
