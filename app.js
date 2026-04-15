@@ -11,6 +11,7 @@ const routes = require("./routes/routes");
 const { db } = require("./db");
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 app.use(auth);
 app.use("/api", routes);
 
