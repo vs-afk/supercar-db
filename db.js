@@ -1,5 +1,5 @@
 // import and destructure Sequelize class from the import
-const { Sequelize } = require("sequelize")
+const { Sequelize, DataTypes } = require("sequelize")
 
 // instantiate sequelize and provide it with location and credentials
 const db = new Sequelize(process.env.DB_URL, {
@@ -7,4 +7,4 @@ const db = new Sequelize(process.env.DB_URL, {
 })
 
 // export for use in other areas of the project
-module.exports = db
+module.exports = { db, Sequelize, DataTypes }

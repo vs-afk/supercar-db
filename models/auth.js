@@ -1,7 +1,6 @@
 // import db for connection
-const db = require("../db");
+const { db, DataTypes } = require("../db");
 // import Data Types to define type of data we want in our table
-const { DataTypes } = require("sequelize");
 
 /* 
 	? Schema

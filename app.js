@@ -8,7 +8,7 @@ const HOST = process.env.HOST || "127.0.0.1";
 const auth = require("./routes/auth");
 const routes = require("./routes/routes");
 // import our sequelize database config
-const db = require("./db");
+const { db } = require("./db");
 
 app.use(express.json());
 app.use(auth);
@@ -18,7 +18,7 @@ app.listen(PORT, HOST, async () => {
 	try {
 		// establish connection to an existing database
 		await db.authenticate();
-		// s
+		// syncs all of our schemas to the database
 		await db.sync({ force: false })
 		console.log(`[server] listening on ${HOST}:${PORT}`);
 		console.log(`[database] running`);
@@ -40,6 +40,7 @@ app.listen(PORT, HOST, async () => {
 	* install using npm i sequelize pg pg-hstore (sequelize + postgres drivers)
 	* add db path to your .env file
 		* ex: "postgres://postgres:dbLocal@localhost:5433/supercarstore"
+		*      dbtype     user      pwd       url    port   name of db
 	* create a db.js file which will store connection string instance
 	* create an instance of the database using pgAdmin or psql
 	* import its content into app.js

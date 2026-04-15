@@ -1,15 +1,5 @@
-const { get } = require("../routes/auth");
-
-/* 
-	? Challenge
-	* this needs a schema for our cars!
-	* create a Cars model file
-	* create a schema containing all of the data we wanted to collect
-	* make, model, year, mileage, transmission, drivetrain, color, and price
-	* export the model
-	* import it here
-	! NOTE: think thru the constraints you want to use
-*/
+const { get } = require("../routes/auth")
+const { Users } = require("../models/cars")
 
 function getAll(req, res) {
 	try {
