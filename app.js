@@ -7,13 +7,15 @@ const HOST = process.env.HOST || "127.0.0.1";
 
 const auth = require("./routes/auth");
 const routes = require("./routes/routes");
+// import session validation
+const sessionValidation = require("./middlewares/validate")
 // import our sequelize database config
 const { db } = require("./db");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(auth);
-app.use("/api", routes);
+app.use("/api", sessionValidation, routes);
 
 app.listen(PORT, HOST, async () => {
 	try {
